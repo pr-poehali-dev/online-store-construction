@@ -6,10 +6,11 @@ interface ContactPageProps {
 
 export default function ContactPage({ onNavigate }: ContactPageProps) {
   return (
-    <div className="industrial-bg min-h-screen">
-      <div className="bg-steel-800 border-b border-steel-700 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-ibm text-steel-400">
-          <button onClick={() => onNavigate('home')} className="hover-amber transition-colors">Главная</button>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-slate-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-golos text-slate-400">
+          <button onClick={() => onNavigate('home')} className="hover:text-blue-500 transition-colors">Главная</button>
           <Icon name="ChevronRight" size={14} />
           <span className="text-foreground">Контакты</span>
         </div>
@@ -18,10 +19,10 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
       <div className="max-w-7xl mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
-            <div className="h-px w-8 bg-amber-DEFAULT" />
-            <span className="text-amber-DEFAULT text-xs uppercase tracking-widest font-oswald">Связь</span>
+            <div className="h-px w-8 bg-blue-400" />
+            <span className="text-blue-500 font-montserrat font-semibold text-xs uppercase tracking-widest">Связь</span>
           </div>
-          <h1 className="font-oswald text-4xl font-bold uppercase">Контакты</h1>
+          <h1 className="font-montserrat text-4xl font-bold uppercase">Контакты</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -33,12 +34,12 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
               { icon: 'Mail', title: 'Email', lines: ['info@stroymarket.ru', 'zakaz@stroymarket.ru'] },
               { icon: 'Clock', title: 'Режим работы', lines: ['Пн-Пт: 8:00 – 19:00', 'Суббота: 9:00 – 17:00', 'Воскресенье: выходной'] },
             ].map((item, i) => (
-              <div key={i} className="steel-texture border border-steel-600 p-5 flex items-start gap-4 amber-line">
-                <Icon name={item.icon as 'MapPin'} size={22} className="text-amber-DEFAULT mt-0.5 flex-shrink-0" />
+              <div key={i} className="bg-white border border-slate-200 rounded-xl p-5 flex items-start gap-4 amber-line">
+                <Icon name={item.icon as 'MapPin'} size={22} className="text-blue-500 mt-0.5 flex-shrink-0" />
                 <div>
-                  <div className="font-oswald text-sm font-semibold uppercase tracking-wide mb-1">{item.title}</div>
+                  <div className="font-montserrat text-sm font-semibold uppercase tracking-wide mb-1">{item.title}</div>
                   {item.lines.map((line, j) => (
-                    <div key={j} className="text-steel-300 font-ibm text-sm">{line}</div>
+                    <div key={j} className="text-slate-600 font-golos text-sm">{line}</div>
                   ))}
                 </div>
               </div>
@@ -46,8 +47,8 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
           </div>
 
           {/* Contact form */}
-          <div className="steel-texture border border-steel-600 p-6">
-            <h2 className="font-oswald text-xl font-bold uppercase mb-5">Написать нам</h2>
+          <div className="bg-white border border-slate-200 rounded-xl p-6">
+            <h2 className="font-montserrat text-xl font-bold uppercase mb-5">Написать нам</h2>
             <div className="space-y-4">
               {[
                 { label: 'Имя', placeholder: 'Ваше имя', type: 'text' },
@@ -55,23 +56,23 @@ export default function ContactPage({ onNavigate }: ContactPageProps) {
                 { label: 'Email', placeholder: 'your@email.ru', type: 'email' },
               ].map(f => (
                 <div key={f.label}>
-                  <label className="block text-xs text-steel-400 uppercase tracking-widest font-oswald mb-1.5">{f.label}</label>
+                  <label className="block text-xs text-slate-400 uppercase tracking-widest font-montserrat mb-1.5">{f.label}</label>
                   <input
                     type={f.type}
                     placeholder={f.placeholder}
-                    className="w-full bg-steel-700 border border-steel-600 px-3 py-2.5 text-sm font-ibm text-foreground placeholder-steel-500 outline-none focus:border-amber-DEFAULT transition-colors"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm font-golos text-foreground placeholder-slate-400 outline-none focus:border-blue-400 transition-colors"
                   />
                 </div>
               ))}
               <div>
-                <label className="block text-xs text-steel-400 uppercase tracking-widest font-oswald mb-1.5">Сообщение</label>
+                <label className="block text-xs text-slate-400 uppercase tracking-widest font-montserrat mb-1.5">Сообщение</label>
                 <textarea
                   rows={4}
                   placeholder="Ваш вопрос или заявка..."
-                  className="w-full bg-steel-700 border border-steel-600 px-3 py-2.5 text-sm font-ibm text-foreground placeholder-steel-500 outline-none focus:border-amber-DEFAULT transition-colors resize-none"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-sm font-golos text-foreground placeholder-slate-400 outline-none focus:border-blue-400 transition-colors resize-none"
                 />
               </div>
-              <button className="w-full bg-amber-DEFAULT hover:bg-amber-500 text-steel-900 font-oswald font-semibold uppercase tracking-wide py-3 transition-colors flex items-center justify-center gap-2">
+              <button className="w-full bg-blue-500 hover:bg-blue-600 text-white font-montserrat font-semibold uppercase tracking-wide py-3 rounded-lg transition-colors flex items-center justify-center gap-2">
                 <Icon name="Send" size={16} /> Отправить
               </button>
             </div>

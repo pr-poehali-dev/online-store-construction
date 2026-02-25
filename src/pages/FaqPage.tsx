@@ -20,10 +20,11 @@ export default function FaqPage({ onNavigate }: FaqPageProps) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="industrial-bg min-h-screen">
-      <div className="bg-steel-800 border-b border-steel-700 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-ibm text-steel-400">
-          <button onClick={() => onNavigate('home')} className="hover-amber transition-colors">Главная</button>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-slate-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-golos text-slate-400">
+          <button onClick={() => onNavigate('home')} className="hover:text-blue-500 transition-colors">Главная</button>
           <Icon name="ChevronRight" size={14} />
           <span className="text-foreground">FAQ</span>
         </div>
@@ -32,28 +33,28 @@ export default function FaqPage({ onNavigate }: FaqPageProps) {
       <div className="max-w-3xl mx-auto px-4 py-12">
         <div className="mb-8">
           <div className="flex items-center gap-2 mb-1">
-            <div className="h-px w-8 bg-amber-DEFAULT" />
-            <span className="text-amber-DEFAULT text-xs uppercase tracking-widest font-oswald">Помощь</span>
+            <div className="h-px w-8 bg-blue-400" />
+            <span className="text-blue-500 font-montserrat font-semibold text-xs uppercase tracking-widest">Помощь</span>
           </div>
-          <h1 className="font-oswald text-4xl font-bold uppercase">Частые вопросы</h1>
+          <h1 className="font-montserrat text-4xl font-bold uppercase">Частые вопросы</h1>
         </div>
 
         <div className="space-y-2">
           {faqs.map((faq, i) => (
-            <div key={i} className="steel-texture border border-steel-600 hover:border-steel-500 transition-colors overflow-hidden">
+            <div key={i} className="bg-white border border-slate-200 hover:border-blue-300 rounded-xl transition-colors overflow-hidden">
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
                 className="w-full flex items-center justify-between px-5 py-4 text-left"
               >
-                <span className="font-oswald text-base font-medium uppercase tracking-wide pr-4">{faq.q}</span>
+                <span className="font-montserrat text-base font-medium uppercase tracking-wide pr-4">{faq.q}</span>
                 <Icon
                   name={openIndex === i ? 'ChevronUp' : 'ChevronDown'}
                   size={18}
-                  className={`flex-shrink-0 transition-colors ${openIndex === i ? 'text-amber-DEFAULT' : 'text-steel-400'}`}
+                  className={`flex-shrink-0 transition-colors ${openIndex === i ? 'text-blue-500' : 'text-slate-400'}`}
                 />
               </button>
               {openIndex === i && (
-                <div className="px-5 pb-5 pt-0 font-ibm text-sm text-steel-300 leading-relaxed border-t border-steel-700 animate-fade-in">
+                <div className="px-5 pb-5 pt-0 font-golos text-sm text-slate-600 leading-relaxed border-t border-slate-200 animate-fade-in">
                   {faq.a}
                 </div>
               )}
@@ -61,11 +62,11 @@ export default function FaqPage({ onNavigate }: FaqPageProps) {
           ))}
         </div>
 
-        <div className="mt-10 steel-texture border border-amber-DEFAULT/30 p-6 text-center">
-          <Icon name="HelpCircle" size={32} className="text-amber-DEFAULT mx-auto mb-3" />
-          <h3 className="font-oswald text-lg font-bold uppercase mb-2">Не нашли ответ?</h3>
-          <p className="text-steel-300 font-ibm text-sm mb-4">Свяжитесь с нами удобным способом — поможем!</p>
-          <button onClick={() => onNavigate('contact')} className="bg-amber-DEFAULT hover:bg-amber-500 text-steel-900 font-oswald font-semibold uppercase tracking-wide px-8 py-3 transition-colors">
+        <div className="mt-10 bg-white border border-blue-400/30 rounded-xl p-6 text-center">
+          <Icon name="HelpCircle" size={32} className="text-blue-500 mx-auto mb-3" />
+          <h3 className="font-montserrat text-lg font-bold uppercase mb-2">Не нашли ответ?</h3>
+          <p className="text-slate-600 font-golos text-sm mb-4">Свяжитесь с нами удобным способом — поможем!</p>
+          <button onClick={() => onNavigate('contact')} className="bg-blue-500 hover:bg-blue-600 text-white font-montserrat font-semibold uppercase tracking-wide px-8 py-3 rounded-lg transition-colors">
             Написать нам
           </button>
         </div>

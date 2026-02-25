@@ -6,30 +6,32 @@ interface AboutPageProps {
 
 export default function AboutPage({ onNavigate }: AboutPageProps) {
   return (
-    <div className="industrial-bg min-h-screen">
-      <div className="bg-steel-800 border-b border-steel-700 py-3">
-        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-ibm text-steel-400">
-          <button onClick={() => onNavigate('home')} className="hover-amber transition-colors">Главная</button>
+    <div className="bg-slate-50 min-h-screen">
+      {/* Breadcrumb */}
+      <div className="bg-white border-b border-slate-200 py-3">
+        <div className="max-w-7xl mx-auto px-4 flex items-center gap-2 text-sm font-golos text-slate-400">
+          <button onClick={() => onNavigate('home')} className="hover:text-blue-500 transition-colors">Главная</button>
           <Icon name="ChevronRight" size={14} />
           <span className="text-foreground">О компании</span>
         </div>
       </div>
 
       <div className="max-w-5xl mx-auto px-4 py-12">
-        <div className="mb-10">
-          <div className="flex items-center gap-2 mb-1">
-            <div className="h-px w-8 bg-amber-DEFAULT" />
-            <span className="text-amber-DEFAULT text-xs uppercase tracking-widest font-oswald">О нас</span>
+        {/* Hero */}
+        <div className="bg-blue-600 text-white rounded-2xl px-8 py-10 mb-10">
+          <div className="flex items-center gap-2 mb-2">
+            <div className="h-px w-8 bg-blue-300" />
+            <span className="text-blue-200 font-montserrat font-semibold text-xs uppercase tracking-widest">О нас</span>
           </div>
-          <h1 className="font-oswald text-4xl font-bold uppercase mb-4">СтройМаркет</h1>
-          <p className="text-steel-200 font-ibm text-lg leading-relaxed max-w-3xl">
+          <h1 className="font-montserrat text-4xl font-bold uppercase mb-4">СтройМаркет</h1>
+          <p className="font-golos text-blue-100 text-lg leading-relaxed max-w-3xl">
             Мы — надёжный поставщик строительных материалов с 2008 года. За 15 лет мы выстроили партнёрские отношения с ведущими производителями и сформировали склад более 10 000 позиций.
           </p>
         </div>
 
         {/* Timeline */}
         <div className="mb-12">
-          <h2 className="font-oswald text-2xl font-bold uppercase mb-6">История компании</h2>
+          <h2 className="font-montserrat text-2xl font-bold uppercase mb-6">История компании</h2>
           <div className="space-y-0">
             {[
               { year: '2008', title: 'Основание', desc: 'Открытие первого склада и торговой точки в Москве.' },
@@ -40,14 +42,14 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             ].map((item, i) => (
               <div key={i} className="flex gap-6 pb-8 relative">
                 <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 bg-amber-DEFAULT flex items-center justify-center flex-shrink-0 z-10">
-                    <span className="font-oswald text-xs font-bold text-steel-900">{item.year}</span>
+                  <div className="w-12 h-12 bg-blue-500 rounded-lg flex items-center justify-center flex-shrink-0 z-10">
+                    <span className="font-montserrat text-xs font-bold text-white">{item.year}</span>
                   </div>
-                  {i < 4 && <div className="w-0.5 flex-1 bg-steel-700 mt-1" />}
+                  {i < 4 && <div className="w-0.5 flex-1 bg-slate-200 mt-1" />}
                 </div>
                 <div className="pb-2">
-                  <div className="font-oswald text-lg font-bold uppercase text-foreground mb-1">{item.title}</div>
-                  <p className="text-steel-300 font-ibm text-sm leading-relaxed">{item.desc}</p>
+                  <div className="font-montserrat text-lg font-bold uppercase text-foreground mb-1">{item.title}</div>
+                  <p className="text-slate-600 font-golos text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
@@ -55,7 +57,7 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
         </div>
 
         {/* Values */}
-        <h2 className="font-oswald text-2xl font-bold uppercase mb-6">Наши ценности</h2>
+        <h2 className="font-montserrat text-2xl font-bold uppercase mb-6">Наши ценности</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             { icon: 'ShieldCheck', title: 'Качество', desc: 'Только сертифицированная продукция от проверенных производителей' },
@@ -63,13 +65,13 @@ export default function AboutPage({ onNavigate }: AboutPageProps) {
             { icon: 'Users', title: 'Клиент на первом месте', desc: 'Индивидуальный подход к каждому — от частника до застройщика' },
             { icon: 'TrendingUp', title: 'Развитие', desc: 'Постоянно расширяем ассортимент и улучшаем сервис' },
           ].map((v, i) => (
-            <div key={i} className="steel-texture border border-steel-600 p-5 flex items-start gap-4">
-              <div className="w-10 h-10 bg-amber-DEFAULT/10 border border-amber-DEFAULT/30 flex items-center justify-center flex-shrink-0">
-                <Icon name={v.icon as 'ShieldCheck'} size={20} className="text-amber-DEFAULT" />
+            <div key={i} className="bg-white border border-slate-200 rounded-xl p-5 flex items-start gap-4">
+              <div className="w-10 h-10 bg-blue-500/10 border border-blue-400/30 rounded-lg flex items-center justify-center flex-shrink-0">
+                <Icon name={v.icon as 'ShieldCheck'} size={20} className="text-blue-500" />
               </div>
               <div>
-                <div className="font-oswald text-sm font-bold uppercase tracking-wide mb-1">{v.title}</div>
-                <p className="text-steel-300 text-sm font-ibm">{v.desc}</p>
+                <div className="font-montserrat text-sm font-bold uppercase tracking-wide mb-1">{v.title}</div>
+                <p className="text-slate-600 text-sm font-golos">{v.desc}</p>
               </div>
             </div>
           ))}
